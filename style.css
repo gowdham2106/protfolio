@@ -1,16 +1,16 @@
-/* Resetting some default styles */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
- }
- 
- /* Sidebar styles */
- .sidebar {
+}
+
+
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 220px;
     height: 100%;
     background-color: #333;
     color: #fff;
@@ -18,83 +18,107 @@
     display: flex;
     flex-direction: column;
     align-items: center;
- }
- 
- .sidebar h2 {
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
- }
- 
- .sidebar nav a {
+    text-align: center;
+}
+
+.sidebar nav a {
     display: block;
     margin: 15px 0;
     color: #fff;
     text-decoration: none;
     font-size: 1.1em;
     transition: color 0.3s;
- }
- 
- .sidebar nav a:hover {
+}
+
+.sidebar nav a:hover {
     color: #4CAF50;
- }
- 
- .sidebar nav i {
+}
+
+.sidebar nav i {
     margin-right: 8px;
- }
- 
- /* Main content styles */
- main {
-    margin-left: 220px; /* Offset for sidebar */
+}
+
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+main {
+    margin-left: 240px; 
     padding: 20px;
     font-family: Arial, sans-serif;
- }
- 
- /* Section styling */
- .section {
+    transition: margin-left 0.3s ease-in-out;
+}
+
+
+.section {
     padding: 20px;
     margin: 20px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
- }
- 
- .section h2 {
+}
+
+.section h2 {
     font-size: 1.5em;
     margin-bottom: 15px;
- }
- 
- /* Custom list style for projects */
- #projects ul {
+}
+
+
+#projects ul {
     list-style: none;
- }
- 
- #projects ul li {
+}
+
+#projects ul li {
     margin: 10px 0;
- }
- 
- #projects ul i {
+}
+
+#projects ul i {
     color: #4CAF50;
     margin-right: 8px;
- }
- 
- /* Smooth scrolling for anchor links */
- html {
+}
+
+
+html {
     scroll-behavior: smooth;
- }
- .profile-container {
+}
+
+
+.profile-container {
     display: flex;
     align-items: center;
     padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
 }
 
 .profile-pic {
-    width: 150px; /* Adjust size as needed */
-    height: 150px; /* Make it square */
+    width: 120px; 
+    height: 120px;
     object-fit: cover;
-    border-radius:0; /* Circle shape */
-    margin-right: 20px; /* Space between image and text */
-    
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.bio {
+    max-width: 600px;
 }
 
 .bio h2 {
@@ -107,8 +131,46 @@
     margin-top: 10px;
     line-height: 1.5;
 }
-html {
-    scroll-behavior: smooth;
- }
- 
- 
+
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        width: 200px;
+        height: 100%;
+        padding-top: 50px;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-pic {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+}
