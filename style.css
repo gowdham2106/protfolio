@@ -103,7 +103,7 @@ html {
 .profile-container {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
